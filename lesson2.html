@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Lesson 2</h1>
+    <script>
+        var x = 1, y = 2, z = 3; // การประกาศตัวแปร หลายตัวด้วย var let 1 ครั้ง 
+        console.log(`x = ${x}; y = ${y}; z = ${z}`)
+        var xx = 1, xy = xx
+        console.log(`xy = xx = ${xy}`)
+
+        console.log('null == undefined',null == undefined) // true
+        console.log('null === undefined',null === undefined) // false
+        console.log('type of null', typeof null) // "object"
+        console.log('type of undefined', typeof undefined) // "undefined"
+
+
+        console.log('200 * 10 กำลัง 5', 200e5)
+        console.log('200 * 10 กำลัง -5', 200E-5)
+
+        console.log("'text'")
+
+        var array = [1, 2, 3, 4, 5]
+        console.log('array length', array.length)
+        array.length = 7
+        console.log(`array length ${array.length}`, array)
+
+
+        function say(func) {
+            console.log('Say...')
+            return function() { //ใช้ function ไร้ชื่อเป็น function callback
+                console.log('Hi...')
+            }
+        }
+        var hi = say()
+        hi()
+
+        function outerFunc() {
+            var value = 0;
+
+            function innerFunc() {
+                console.log(++value);
+            }
+            return innerFunc;
+        }
+
+        var func1 = outerFunc();
+        func1()
+        func1()
+
+        var func2 = outerFunc();
+        func2()
+        func2()
+        debugger // บรรทัดนี้จะเป็นตำแหน่งของ breakpoint
+        console.log('2')
+    </script>
+</body>
+</html>
