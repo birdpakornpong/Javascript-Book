@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <script>
+    <script type="module"> // tye module ใส่ จะทำให้ต่อกับ html ได้
         // Default Parameter
         function sendMessage(ipadAddress, message = "hello", callback = () => { }) {
             console.log('function default = ', ipadAddress, message, callback())
@@ -90,8 +90,25 @@
         introducing.forEach((value, index, arr) => { arr[index] = value * 3 })
         console.log('introduction', introducing)
 
+        let buttonJS = {
+            value: "peter laugh between him walking out library",
+            print: function () {
+                console.log('message => ', this.value) // อ้างถึง buttonJS
+            },
+            handle: function () {
+                console.log('handle => handle')
+            },
+            init: function () {
+                let element = document.querySelector('#b1')
+                element.addEventListener("click", (event) => this.handle()) // this จะชี้ไป buttonJS แต่หากใช้ function this จะชี้ไป element
+            }
+        }
 
+        buttonJS.print()
+        buttonJS.init()
     </script>
+
+    <button class="success" id="b1">Try in</button>
     <p>
 
     </p>
