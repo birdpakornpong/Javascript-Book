@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv=X-UA-Compatible content=IE=edge>
+    <meta name=viewport content=width=device-width, initial-scale=1.0>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Lesson 2</h1>
+    <script>
+        // Reduce
+        const array1 = [1, 2, 3, 4];
+        const reducer = (previousValue, currentValue) => previousValue + currentValue;
+        console.log('reduceArrayNumber =', array1.reduce(reducer));
+        console.log('initialValue', array1.reduce(reducer, 4))
+
+
+        let inittialValue = 0;
+        let number = [{ x: 1 }, { x: 2 }, { x: 3 }]
+        const reduceArray = number.reduce((previousValue, currentValue) => previousValue + currentValue.x, inittialValue)
+        console.log('reduceArray', reduceArray)
+
+        // Grouping objects by a property
+        let people = [
+            {
+                name: "alice", age: 21
+            },
+            {
+                name: "Max", age: 20
+            },
+            {
+                name: "Jane", age: 20
+            }
+        ]
+        let empolyId = []
+        function groupBy(objectArray, property) {
+            return objectArray.reduce(function (acc, obj) {
+
+                let key = obj[property]
+                const test = empolyId.filter(item => item == key)
+                if (test.length > 0) {
+
+                } else {
+                    empolyId.push(key)
+                }
+                if (!acc[key]) {
+                    acc[key] = []
+                }
+                acc[key].push(obj)
+                return acc
+            }, {})
+        }
+
+        let groupedPeople = groupBy(people, 'age')
+        console.log('groupedPeople', groupedPeople)
+
+        const data = []
+        empolyId.map((item) => {
+            const res = groupedPeople[item]
+            const sum = res.reduce((previousValue, currentValue) => previousValue + currentValue.age, 0)
+            const payload = {
+                employId: item,
+                sum: sum
+            }
+            data.push(payload)
+            console.log('sum', data)
+        })
+
+
+    </script>
+</body>
+
+</html>
