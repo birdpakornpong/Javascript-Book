@@ -10,7 +10,10 @@
 
 <body>
     <h1>Javascript Lesson 2</h1>
+    <p class="test">select mesaage</p>
     <script>
+        var elTest = document.querySelector("p.test")
+        console.log('el', elTest.innerHTML)
         var x = 1, y = 2, z = 3; // การประกาศตัวแปร หลายตัวด้วย var let 1 ครั้ง 
         console.log(`x = ${x}; y = ${y}; z = ${z}`)
         var xx = 1, xy = xx
