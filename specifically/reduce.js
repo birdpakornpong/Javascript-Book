@@ -1,7 +1,3 @@
-// run ให้ขึ้น console ด้วย node practice.js
-console.log('pass')
-
-
 // Reduce
     // Grouping objects by a property
     let peoples = [
